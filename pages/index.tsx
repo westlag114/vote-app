@@ -6,6 +6,7 @@ import { apiClient } from '~/utils/apiClient'
 import UserBanner from '~/components/UserBanner'
 import type { Task } from '$prisma/client'
 import type { FormEvent, ChangeEvent } from 'react'
+import config from '~/config/auth0-config'
 
 const Home = () => {
   const { data: tasks, error, revalidate } = useAspidaSWR(apiClient.tasks)
@@ -42,6 +43,9 @@ const Home = () => {
 
   return (
     <div className={styles.container}>
+      <a href="/api/login">Login</a>
+      <a href="/api/logout">logout</a>
+      <a href="/api/me">me</a>
       <Head>
         <title>frourio-todo-app</title>
         <link rel="icon" href="/favicon.png" />
